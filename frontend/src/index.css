@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.hero-section h1{
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+}
+
+#root {
+    font-family: "Public Sans", sans-serif;
+    --bs-body-bg-dark: 37, 36, 34; /* Dark mode background color */
+    --bs-primary-rgb: 58, 134, 255; /* Example primary color */
+    --bd-accent-rgb: 252, 163, 17; /* Example accent color */
+    --bd-violet-rgb: 186, 85, 211; /* Example violet color */
+    --bd-pink-rgb: 230, 57, 70; /* Example pink color */
+    --bd-black-rgb: 0 , 0 , 0;
+    --bs-green-rgb: 174 , 251 , 42;
+    --bs-teal-rgb: 87 , 235 , 222
+  }
+  
+  .hero-section {
+    background-image: 
+      linear-gradient(
+        180deg,
+        rgba(var(--bs-body-bg-dark) , 0.1),
+        rgba(var(--bs-body-bg-dark), 1) 85%
+      ),
+      radial-gradient(
+        ellipse at top right,
+        rgba(var(--bs-primary-rgb), 0.4),
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at top left,
+        rgba(var(--bd-accent-rgb), 0.8),
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at center right,
+        rgba(var(--bd-violet-rgb), 3),
+        transparent 80%
+      ),
+      radial-gradient(
+        ellipse at center left,
+        rgba(var(--bd-pink-rgb), 20),
+        transparent 90%
+      );
+    /* background-color: rgb(var(--bs-body-bg-dark)); */
+    background-color: black;
+  }
