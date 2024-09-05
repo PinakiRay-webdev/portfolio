@@ -11,11 +11,11 @@ const Navbar = () => {
   })
 
   return (
-    <div className="flex absolute z-20 top-0 py-3 items-center justify-between w-[84vw]">
-        <p id="logo" className="text-white font-light">DESIGN BY <span className="font-bold" >SANKAR</span></p>
+    <div id="nav" className="flex absolute z-20 top-0 py-3 items-center justify-between w-[84vw] text-white">
+        <p id="logo" className="font-light">DESIGN BY <span className="font-bold" >SANKAR</span></p>
       <div className="flex gap-5 items-center">
         {navbar.map((Element, id) => (
-          <p id="nav-items" className="text-white capitalize cursor-pointer" key={id}>
+          <p id="nav-items" className="capitalize cursor-pointer" key={id}>
             {Element}
           </p>
         ))}
