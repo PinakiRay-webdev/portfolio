@@ -5,26 +5,41 @@ import { ScrollTrigger } from "gsap/all";
 import { donut } from "../utils";
 const TagLine = () => {
 
-    useGSAP(()=>{
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.from("#tagline #line2" , {y:-40 , opacity:0, duration:0.2 , scrollTrigger:{
-            trigger:"#tagline #line2",
-            start: "top 60%"
-        }})
-        gsap.to("#donut" , {rotate:600 , duration:1 , scrollTrigger:{
-            trigger:"#donut",
-            toggleActions:"resume pause pause reverse",
-            start:"top 60%",
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
 
-        }})
-        gsap.to("#tagline #tag-box" , {translateX:"-190rem",  scrollTrigger:{
-            trigger:"#tagline",
-            start:"top 30%",
-            end:"top -100%",
-            scrub:3,
-            pin:true
-        }},[])
-    })
+    gsap.from("#tagline #line2", {
+      y: -40,
+      opacity: 0,
+      duration: 0.2,
+      scrollTrigger: {
+        trigger: "#tagline #line2",
+        start: "top 60%",
+      },
+    });
+
+    gsap.to("#donut", {
+      rotate: 600,
+      delay: 1,
+      duration: 1,
+      scrollTrigger: {
+        trigger: "#donut",
+        toggleActions: "resume pause reverse pause",
+        start: "top 70%",
+      },
+    });
+
+    gsap.to("#tagline #tag-box", {
+      translateX: "-190rem",
+      scrollTrigger: {
+        trigger: "#tagline",
+        start: "top 20%",
+        end: "top -400%",
+        scrub: 3,
+        pin: true,
+      },
+    });
+  }, [])
 
   return (
     <div id="tagline" className="w-full hit overflow-hidden">
@@ -38,10 +53,12 @@ const TagLine = () => {
         </div>
         <div className="flex items-center gap-6" >
         <img id="donut" className="w-[22rem]" src={donut} alt="" />
+        <div>
         <h1 className="text-[#fefae0] text-[15vh] whitespace-nowrap">
-          I Bring Interfaces to Life with Stunning Animations and Intuitive
+          I Bring Interfaces to Life with Stunning <span id="spanText">Animations</span> and Intuitive
           Design!
         </h1>
+        </div>
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ const Benefits = () => {
       scrollTrigger: {
         trigger: "#benefits",
         start: "top 0%",
-        end: "top -100%",
+        end: "top -200%",
         scrub: 2,
         pin: true,
       },
