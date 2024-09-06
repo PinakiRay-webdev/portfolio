@@ -1,56 +1,52 @@
-import React, { useEffect } from "react";
+import React from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger} from "gsap/all";
 import { benefitsArray } from "../constants";
-
 const Benefits = () => {
-  useEffect(() => {
+  useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
-    
     let tl = gsap.timeline({
       scrollTrigger: {
-        trigger: "#box1",
-        // scrub: 1,         // Smooth animation scrub
-        start: "top 60%"
+        trigger: "#benefits",
+        start: "top 0%",
+        end: "top -100%",
+        scrub: 2,
+        pin: true,
       },
     });
-    
-    // Define animations for each box
-    tl.to("#box1", {
+    tl.to("#benefits #box1", {
       left: "50%",
       translateX: "-50%",
-      duration: 0.7,
-      opacity: 1,
-    })
-    .to("#box2", {
-      left: "0%",
-      duration: 0.7,
-      opacity: 1,
-    })
-    .to("#box3", {
-      right: "0%",
-      duration: 0.7,
+      duration: 1,
       opacity: 1,
     });
+    tl.to("#benefits #box2", { left: "0%", duration: 1, opacity: 1 });
+    tl.to("#benefits #box3", { right: "0%", duration: 1, opacity: 1 });
   }, []);
 
   return (
     <div id="benefits" className="bg-black h-fit w-full">
       <div className="max-w-screen-xl mx-auto h-screen relative">
         <header>
-          <h1 className="text-white font-bold text-5xl capitalize leading-[4rem]">
-            Front end developer at the<span className="block"></span> 
-            intersection of design<span className="block"></span> 
-            and code.
-          </h1>
+          <div>
+            <h1 className="text-white font-bold text-5xl capitalize leading-[4rem]">
+              Front end developer at the<span className="block"></span>{" "}
+              intersection of design<span className="block"></span> and code.
+            </h1>
+          </div>
         </header>
         <main className="py-12 flex justify-center">
           {benefitsArray.map((Element) => (
-            <div id={Element.id} className={Element.myUI} key={Element.id}>
+            <div id={Element.id} className={Element.myUI}>
               <header className="w-[60%]">
-                <h1 className="text-3xl capitalize font-bold">{Element.heading}</h1>
+                <h1 className="text-3xl capitalize font-bold">
+                  {Element.heading}
+                </h1>
               </header>
-              <p className="text-sm py-4 border-b border-zinc-500">{Element.about}</p>
+              <p className="text-sm py-4 border-b border-zinc-500">
+                {Element.about}
+              </p>
               <ul className="px-4 py-6">
                 {Element.lists.map((items, id) => (
                   <li key={id} className="text-sm list-disc text-zinc-800">
